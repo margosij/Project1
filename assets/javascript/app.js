@@ -38,15 +38,21 @@ $(document).ready(function() {
         //append jokes to display
         for (i = 0; i < jokes.length; i++) {
           var newJoke = $("<p>");
+          newJoke.addClass("canHaz");
           newJoke.text(jokes[i].joke);
           
           $("#jokesGOHERE").append(newJoke);
         }
+        $(".canHaz").on('click', function (){
+          Yoda(this.text);
+        }
+        )
       });
     }
   });
 
   //function to convert jokes to yodish
+
   function Yoda (jokeToConvert){
     var settings = {
       async: true,
