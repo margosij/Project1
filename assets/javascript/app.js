@@ -44,7 +44,7 @@ $(document).ready(function() {
           $("#jokesGOHERE").append(newJoke);
         }
         $(".canHaz").on('click', function (){
-          Yoda(this.text);
+          Yoda(this.innerText);
         }
         )
       });
