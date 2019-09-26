@@ -1,4 +1,9 @@
+// @TODO AJAX call to jokes api to retrieve jokes based on user input here
+
+// fake joke that might come from AJAX response of joke API
 jokeToConvert = "There’s a new type of broom out, it’s sweeping the nation."
+
+// example AJAX call to Yoda Translator API to translate joke into Yodish (should eventually be put into loop that does this for all jokes returned)
 
 var settings = {
 	"async": true,
@@ -17,6 +22,7 @@ $.ajax(settings).done(function (response) {
 	console.log(response);
 });
 
+// fake array of jokes that might come from AJAX response of yoda translator
 var jokesFromResponse = ["Fake joke 1", "Fake joke 2", "Fake joke 3"];
 
 for (var i = 0; i < jokesFromResponse.length; i++) {
