@@ -1,7 +1,6 @@
 $(document).ready(function() {
-
   var jokesFromResponse = ["Fake joke 1", "Fake joke 2", "Fake joke 3"];
-
+  var sectionNUM = 1;
   //variable to store joke input
   var jokeCategory = "";
   //query variable
@@ -43,22 +42,18 @@ $(document).ready(function() {
           var newJoke = $("<p>");
           newJoke.addClass("canHaz");
           newJoke.text(jokes[i].joke);
-          
           $("#jokesGOHERE").append(newJoke);
         }
-        $(".canHaz").on('click', function () {
-          console.log(this);
-        $(".canHaz").on('click', function (){
+        $(".canHaz").on("click", function() {
           Yoda(this.innerText);
-        }
-        )
+        });
       });
     }
   });
 
   //function to convert jokes to yodish
 
-  function Yoda (jokeToConvert){
+  function Yoda(jokeToConvert) {
     var settings = {
       async: true,
       crossDomain: true,
@@ -71,14 +66,14 @@ $(document).ready(function() {
       },
       data: {}
     };
-  
+
     $.ajax(settings).done(function(response) {
-      console.log(response);
+      $("#page" + sectionNUM).innerText(response);
+      sectionNUM++;
     });
   }
-//tilt function
+  //tilt function
   function tilt() {
-
     for (var i = 0; i < jokesFromResponse.length; i++) {
       $(".main").tiltedpage_scroll({
         sectionContainer: "> section", // In case you don't want to use <section> tag, you can define your won CSS selector here
@@ -92,7 +87,7 @@ $(document).ready(function() {
 
   function start() {
     //we set this to whatever we want, but 12 for now.
-    for (i = 1; i < 13; i++) {
+    for (i = 1; i < 21; i++) {
       var newSection = $("<section>");
       newSection.addClass("page" + i);
 
