@@ -1,0 +1,36 @@
+body {
+    background: url("../images/images1.jpeg") no-repeat;
+    background-size: cover;
+    padding: 0;
+    margin: 0;
+    /* background-color: red; */
+}
+nav {
+    position: fixed;
+    top: -1;
+    margin-top: 0;
+    padding-top: 0;
+}
+/* .navbar {
+    overflow: hidden;
+    background-color: rgb(51, 51, 51);
+  }
+ .navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+  }
+  .content {
+    padding: 16px;
+  }
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+  .sticky + .content {
+    padding-top: 60px;
+  } */
