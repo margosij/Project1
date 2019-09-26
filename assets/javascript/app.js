@@ -43,8 +43,9 @@ $(document).ready(function() {
           
           $("#jokesGOHERE").append(newJoke);
         }
-        $(".canHaz").on('click', function (){
-          Yoda(this.text);
+        $(".canHaz").on('click', function () {
+          console.log(this);
+          Yoda(this.innerText);
         }
         )
       });
