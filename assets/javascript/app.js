@@ -65,7 +65,7 @@ $("#jokeInput").on("click", function(event) {
       for (i = 0; i < jokes.length; i++) {
         var newJoke = $("<p>");
         newJoke.text(jokes[i].joke);
-        $("#jokeGOHERE").append(newJoke);
+        
       }
     });
   }
