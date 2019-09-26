@@ -62,11 +62,15 @@ $("#jokeInput").on("click", function(event) {
       var jokes = randomJoke.results;
       console.log(jokes);
       //append jokes to display
-      for (i = 0; i < jokes.length; i++) {
-        var newJoke = $("<p>");
-        newJoke.text(jokes[i].joke);
-        $("#jokeGOHERE").append(newJoke);
-      }
+      $(".page1").text(jokes[0].joke);
+      $(".page2").text(jokes[1].joke);
+      $(".page3").text(jokes[2].joke);
+      
+      // for (i = 0; i < jokes.length; i++) {
+      //   var newJoke = $("<p>");
+      //   newJoke.text(jokes[i].joke);
+      //   $("#jokeGOHERE").append(newJoke);
+      // }
     });
   }
 });
