@@ -1,62 +1,77 @@
 <!DOCTYPE html>
-<head>
-  <meta charset="UTC-8" />
-  <title>Jokes from Yoda</title>
-  <link
-    href="assets/css/tiltedpage-scroll.css"
-    rel="stylesheet"
-    type="text/css"
-  />
-</head>
-<link href="assets/css/style.css" rel="stylesheet" type="text/css" />
-<body>
-  <div class="main">
-    <section class="page1">
-      <p>This is the first joke section</p>
-    </section>
-    <section class="page2">
-      <p>This is the section for the next joke</p>
-    </section>
-    <section class="page3">
-      <p>This is an example section for the third joke</p>
-    </section>
-  </div>
-  <div class="container">
-    <form>
-      <div class="form-group">
-        <label for="category">category</label>
-        <input
-          type="text"
-          class="form-control"
-          id="category"
-          aria-describedby="categoryHelp"
-          placeholder="category"
-        />
-      </div>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8" />
+    
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Jokes from Yoda</title>
+<!-- jquery cdn -->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <linK rel="stylesheet" type="text/css" href="assets/css/reset.css" />
+    <!-- bootstrap cdn -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <!-- tilted page css link -->
+    <link
+      href="assets/css/tiltedpage-scroll.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- CSS Link -->
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="main"></div>
+    <div class="card">
+    <div class = "card-title">
+      <h5>Temporary</h5>
+    <div class="card-body overflow-auto" id=jokesGOHERE></div>
+  </div></div>
+    <div class="container">
+      <form>
+        <div class="form-group">
+          <label for="category">category</label>
+          <input
+            type="text"
+            class="form-control text-center"
+            id="category"
+            aria-describedby="categoryHelp"
+            placeholder="Dad"
+          />
+        </div>
 
-      <button type="submit" class="btn btn-primary " id="jokeInput">
-        Submit
-      </button>
-    </form>
-  </div>
-  <div id="jokeGOHERE"></div>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <!-- <script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-app.js"></script> -->
-  <!-- <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-database.js"></script> -->
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"
-  ></script>
-  <script
-    src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"
-  ></script>
-  <script
-    type="text/javascript"
-    src="assets/javascript/jquery.tiltedpage-scroll.js"
-  ></script>
-  <script type="text/javascript" src="assets/javascript/app.js"></script>
-</body>
+        <button type="submit" class="btn btn-primary " id="jokeInput">
+          Submit
+        </button>
+      </form>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="assets/javascript/jquery.tiltedpage-scroll.js"></script>
+    <script src="assets/javascript/app.js"></script>
+  </body>
+</html>
