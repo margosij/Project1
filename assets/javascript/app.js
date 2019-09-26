@@ -48,6 +48,7 @@ $(document).ready(function() {
         }
         $(".canHaz").on('click', function () {
           console.log(this);
+        $(".canHaz").on('click', function (){
           Yoda(this.innerText);
         }
         )
