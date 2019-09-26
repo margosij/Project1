@@ -6,12 +6,14 @@ $(document).ready(function() {
   var jokeCategory = "";
   //query variable
   var queryURL = "https://icanhazdadjoke.com/search?term=";
+  var querysearchURL = "";
 
   console.log(queryURL);
   //when submit button is clicked
   $("#jokeInput").on("click", function(event) {
     //prevent default submit
     event.preventDefault();
+    jokeCategory = "";
     //get value from input field
     jokeCategory = $("#category")
       .val()
@@ -22,13 +24,13 @@ $(document).ready(function() {
       return;
     } else {
       //build query variable with subject
-      queryURL = queryURL + jokeCategory;
+      querysearchURL = queryURL + jokeCategory;
       $.ajax({
         //headers syntax
         headers: {
           Accept: "application/json"
         },
-        url: queryURL,
+        url: querysearchURL,
         method: "GET"
       }).then(function(randomJoke) {
         console.log(randomJoke);
@@ -36,6 +38,7 @@ $(document).ready(function() {
         var jokes = randomJoke.results;
         console.log(jokes);
         //append jokes to display
+        $("#jokesGOHERE").empty();
         for (i = 0; i < jokes.length; i++) {
           var newJoke = $("<p>");
           newJoke.addClass("canHaz");
