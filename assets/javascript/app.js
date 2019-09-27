@@ -74,7 +74,7 @@ $(document).ready(function() {
     };
 
     $.ajax(settings).done(function(response) {
-      $("#page" + sectionNUM).innerText(response);
+      $("section.page" + sectionNUM + ">div>div>div>div").text(response.contents.translated);
       sectionNUM++;
     });
   }
@@ -90,7 +90,7 @@ $(document).ready(function() {
       });
     }
   }
-
+  // section.page1>div>div>div>div
   function start() {
     //we set this to whatever we want, but 12 for now.
     for (i = 1; i < 6; i++) {
