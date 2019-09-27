@@ -324,7 +324,7 @@ pre code {
   border: 1px solid black;
   /* opacity: .2;
   filter: alpha(opacity=60); */
-  height: 50px;
+  min-height: 50px;
   margin: 200px 30px;
   margin-top: 280px;
   color: #ffffff;
