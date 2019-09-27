@@ -308,3 +308,13 @@ pre code {
   overflow: hidden;
   clear: both;
 }
+
+.transbox{
+  margin: 30px;
+  background-color: #ffffff;
+  border: 1px solid black;
+  opacity: .4;
+  filter: alpha(opacity=60);
+  height: 50px;
+  margin: 200px 30px;
+}

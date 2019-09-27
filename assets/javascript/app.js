@@ -38,21 +38,25 @@ $(document).ready(function() {
         var jokes = randomJoke.results;
         console.log(jokes);
         //append jokes to display
+
+        //for i = 0; i < jokes.length; i++) {
+          //var jokeSlide = $()
+        //}
         $("#jokesGOHERE").empty();
+        //$("#tps-wrapper").empty();
         for (i = 0; i < jokes.length; i++) {
           var newJoke = $("<p>");
           newJoke.addClass("canHaz");
           newJoke.text(jokes[i].joke);
           
           $("#jokesGOHERE").append(newJoke);
+          //$("#tps-wrapper").append(newJoke);
         }
-        $(".canHaz").on('click', function () {
-          console.log(this);
         $(".canHaz").on('click', function (){
           Yoda(this.innerText);
         }
         )
-      });
+      })
     }
   });
 
@@ -92,10 +96,15 @@ $(document).ready(function() {
 
   function start() {
     //we set this to whatever we want, but 12 for now.
-    for (i = 1; i < 13; i++) {
+    for (i = 1; i < 6; i++) {
       var newSection = $("<section>");
       newSection.addClass("page" + i);
 
+      var jokeBox = $("<div>");
+      jokeBox.addClass("transbox");
+
+      jokeBox.append("<p>");
+      newSection.append(jokeBox);
       $(".main").append(newSection);
     }
     tilt();
