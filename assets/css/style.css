@@ -5,11 +5,14 @@ body {
   background: #f1f1f2;
   padding: 0;
   text-align: center;
-  font-family: "open sans";
   position: relative;
   margin: 0;
   height: 100%;
   color:black;
+}
+
+#jokesGOHERE {
+  color: #ffffff!important;
 }
 
 .wrapper {
@@ -51,7 +54,6 @@ h2 {
 
 .pointer {
   color: #00b0ff;
-  font-family: "Pacifico";
   font-size: 24px;
   margin-top: 15px;
   position: absolute;
@@ -60,7 +62,6 @@ h2 {
 }
 .pointer2 {
   color: #00b0ff;
-  font-family: "Pacifico";
   font-size: 24px;
   margin-top: 15px;
   position: absolute;
@@ -95,13 +96,16 @@ pre code {
   font-weight: 100;
   margin: 0;
   padding-top: 55px;
-  font-family: "Open Sans";
   letter-spacing: -1px;
   text-transform: capitalize;
 }
 
 .main h1.demo1 {
   background: #1abc9c;
+}
+
+.ml-auto {
+  margin-left: 10px!important;
 }
 
 .reload.bell {
@@ -120,7 +124,7 @@ pre code {
   line-height: 140%;
 }
 
-.reload,
+/* .reload,
 .btn {
   display: inline-block;
   border-radius: 3px;
@@ -133,7 +137,6 @@ pre code {
   width: 100px;
   line-height: 140%;
   font-size: 17px;
-  font-family: Open Sans;
   font-weight: bold;
   -webkit-box-shadow: none;
   box-shadow: none;
@@ -169,7 +172,7 @@ pre code {
   float: left;
   width: 100%;
   margin: 50px auto;
-}
+} */
 .credit {
   text-align: center;
   color: #888;
@@ -237,14 +240,15 @@ pre code {
 }
 
 .main {
-  margin-bottom: 350px;
+  margin-top: 64px;
   overflow: hidden;
+
 }
 .tps-section {
   width: 100% !important;
   max-width: 1000px;
-  margin: 0 auto;
-  height: 500px;
+  margin: 40px auto;
+  height: 380px;
 }
 
 .tps-section .tps-wrapper {
@@ -277,31 +281,37 @@ pre code {
 
 .tps-section .tps-wrapper h1 a small {
   text-transform: none;
-  font-style: italic;
   font-weight: 400;
-  font-family: noto serif;
   letter-spacing: 1px;
   font-size: 14px;
 }
 
 .tps-section:nth-child(1n + 1) .tps-wrapper {
   background: url(demo1.jpg) center center;
-  background-size: cover;
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-color: #000000;
 }
 
 .tps-section:nth-child(2n + 1) .tps-wrapper {
   background: url(demo2.jpg) center center;
-  background-size: cover;
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-color: #000000;
 }
 
 .tps-section:nth-child(3n + 1) .tps-wrapper {
   background: url(demo3.jpg) center center;
-  background-size: cover;
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-color: #000000;
 }
 
 .tps-section:nth-child(4n + 1) .tps-wrapper {
   background: url(demo4.jpg) center center;
-  background-size: cover;
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-color: #000000;
 }
 
 .header {
@@ -310,11 +320,12 @@ pre code {
 }
 
 .transbox{
-  margin: 30px;
-  background-color: #ffffff;
+  background-color: rgb(46, 46, 46);
   border: 1px solid black;
-  opacity: .4;
-  filter: alpha(opacity=60);
+  /* opacity: .2;
+  filter: alpha(opacity=60); */
   height: 50px;
   margin: 200px 30px;
+  margin-top: 280px;
+  color: #ffffff;
 }
