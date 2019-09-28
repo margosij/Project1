@@ -2,13 +2,14 @@ html {
   height: 100%;
 }
 body {
-  background: #f1f1f2;
+  background: url("stars.jpg");
+  background-repeat: round;
   padding: 0;
   text-align: center;
   position: relative;
   margin: 0;
   height: 100%;
-  color:black;
+  /* color:black; */
 }
 
 #jokesGOHERE {
