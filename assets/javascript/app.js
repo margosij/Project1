@@ -7,17 +7,18 @@ $(document).ready(function() {
   var queryURL = "https://icanhazdadjoke.com/search?term=";
   var querysearchURL = "";
 
-  console.log(queryURL);
   //when submit button is clicked
   $("#jokeInput").on("click", function(event) {
+    $(".transbox").empty();
+    sectionNUM=1;
     //prevent default submit
     event.preventDefault();
     jokeCategory = "";
+    
     //get value from input field
     jokeCategory = $("#category")
       .val()
       .trim();
-    console.log(jokeCategory);
     //if input field is empty, return
     if (jokeCategory === undefined || jokeCategory.length == 0) {
       return;
@@ -32,16 +33,15 @@ $(document).ready(function() {
         url: querysearchURL,
         method: "GET"
       }).then(function(randomJoke) {
-        console.log(randomJoke);
         //set response array
         var jokes = randomJoke.results;
-        console.log(jokes);
         //append jokes to display
 
         //for i = 0; i < jokes.length; i++) {
           //var jokeSlide = $()
         //}
         $("#jokesGOHERE").empty();
+        // $(".transbox").empty();
         //$("#tps-wrapper").empty();
         for (i = 0; i < jokes.length; i++) {
           var newJoke = $("<p>");
@@ -50,11 +50,16 @@ $(document).ready(function() {
           $("#jokesGOHERE").append(newJoke);
           //$("#tps-wrapper").append(newJoke);
         }
-        $(".canHaz").on("click", function() {
-          Yoda(this.innerText);
-        });
+        // $(".canHaz").on("click", function() {
+        //   Yoda(this.innerText);
+        // });
       });
     }
+  });
+
+  $(document).on("click", ".canHaz", function() {
+    console.log("this is clicked")
+    Yoda(this.innerText);
   });
 
   //function to convert jokes to yodish
@@ -73,7 +78,8 @@ $(document).ready(function() {
       data: {}
     };
 
-    $.ajax(settings).done(function(response) {
+    $.ajax(settings).then(function(response) {
+      console.log(sectionNUM, 'sectionNum')
       $("section.page" + sectionNUM + ">div>div>div>div").text(response.contents.translated);
       sectionNUM++;
     });
