@@ -1,14 +1,21 @@
 html {
   height: 100%;
 }
+
+
 body {
-  background: #f1f1f2;
+  background-image: url("astronomy-constellation-dark-998641.jpg"); 
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
   padding: 0;
   text-align: center;
   position: relative;
   margin: 0;
   height: 100%;
   color:black;
+
 }
 
 #jokesGOHERE {
