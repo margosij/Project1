@@ -39,7 +39,7 @@ $(document).ready(function() {
         //append jokes to display
 
         //for i = 0; i < jokes.length; i++) {
-        //var jokeSlide = $()
+          //var jokeSlide = $()
         //}
         $("#jokesGOHERE").empty();
         //$("#tps-wrapper").empty();
@@ -74,9 +74,7 @@ $(document).ready(function() {
     };
 
     $.ajax(settings).done(function(response) {
-      $("section.page" + sectionNUM + ">div>div>div>div").text(
-        response.contents.translated
-      );
+      $("section.page" + sectionNUM + ">div>div>div>div").text(response.contents.translated);
       sectionNUM++;
     });
   }
@@ -109,56 +107,6 @@ $(document).ready(function() {
     }
     tilt();
   }
-  function introScreen() {
-    // $("main").empty();
-    // var newDiv = $("<div>");
-    // newDiv.addClass("starwars-demo");
-    // var newImg = $("<img>");
-    // newImg.attr("src", "assets/images/star.svg");
-    // newImg.attr("alt", "Stars");
-    // newImg.addClass("star");
-    // newDiv.append(newImg);
-    // var newImg2 = $("<img>");
-    // newImg2.attr("src", "assets/images/wars.svg");
-    // newImg2.attr("alt", "Wars");
-    // newImg2.addClass("wars");
-    // newDiv.append(newImg2);
-    // var newH2 = $("<h2>");
-    // newH2.addClass("byline");
-    // newH2.attr("id", "byline");
-    // newH2.text("The Force Awakens");
-    // newDiv.append(newH2);
-    // $("main").append(newDiv);
-    animateIntro();
-  }
-
-  function animateIntro() {
-    var byline = document.getElementById("byline"); // Find the H2
-    var bylineText = byline.innerHTML; // Get the content of the H2
-    var bylineArr = bylineText.split(""); // Split content into array
-    byline.innerHTML = ""; // Empty current content
-
-    var span; // Create variables to create elements
-    var letter;
-
-    for (i = 0; i < bylineArr.length; i++) {
-      // Loop for every letter
-      span = document.createElement("span"); // Create a <span> element
-      letter = document.createTextNode(bylineArr[i]); // Create the letter
-      if (bylineArr[i] == " ") {
-        // If the letter is a space...
-        byline.appendChild(letter); // ...Add the space without a span
-      } else {
-        span.appendChild(letter); // Add the letter to the span
-        byline.appendChild(span); // Add the span to the h2
-      }
-    }
-    $(document).keyup(function() {
-      start();
-    });
-  }
-
   //start function builds the sections used for the tilt function
-  // start();
-  introScreen();
+  start();
 });
