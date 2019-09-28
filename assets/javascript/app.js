@@ -95,6 +95,7 @@ $(document).ready(function() {
   // section.page1>div>div>div>div
   function start() {
     //we set this to whatever we want, but 12 for now.
+    $(".starwars-demo").remove();
     for (i = 1; i < 6; i++) {
       var newSection = $("<section>");
       newSection.addClass("page" + i);
