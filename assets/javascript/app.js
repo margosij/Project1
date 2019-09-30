@@ -13,14 +13,14 @@ $(document).ready(function() {
   var starterSubject = "dad";
   // ===========================================================================
   // // ========================================================================
-     // // =====================================================================
-        // // ==================================================================
-           // // ===============================================================
-              // 
-              // ===============================================================
-           // ==================================================================
-        // =====================================================================
-     // ========================================================================
+  // // =====================================================================
+  // // ==================================================================
+  // // ===============================================================
+  //
+  // ===============================================================
+  // ==================================================================
+  // =====================================================================
+  // ========================================================================
   // ===========================================================================
   //when submit button is clicked
   $("#jokeInput").on("click", function(event) {
@@ -62,23 +62,14 @@ $(document).ready(function() {
       //set response array
       var jokes = randomJoke.results;
       //append jokes to display
-
-      //for i = 0; i < jokes.length; i++) {
-      //var jokeSlide = $()
-      //}
       $("#jokesGOHERE").empty();
-      // $(".transbox").empty();
-      //$("#tps-wrapper").empty();
       for (i = 0; i < jokes.length; i++) {
         var newJoke = $("<p>");
-        newJoke.addClass("canHaz");
+        newJoke.addClass("canHaz text-center");
         newJoke.text(jokes[i].joke);
         $("#jokesGOHERE").append(newJoke);
-        //$("#tps-wrapper").append(newJoke);
       }
-      // $(".canHaz").on("click", function() {
-      //   Yoda(this.innerText);
-      // });
+      
     });
   }
 
@@ -134,8 +125,68 @@ $(document).ready(function() {
     }
     tilt();
   }
-  //start function builds the sections used for the tilt function
-  start();
-  //appends starter subject dad jokes
-  icanHaz(starterSubject);
+  // ===========================================================================
+  // // ========================================================================
+  // // =====================================================================
+  // // ==================================================================
+  // intro
+  // ==================================================================
+  // =====================================================================
+  // ========================================================================
+  // ===========================================================================
+  function introScreen() {
+    // $("main").empty();
+    var newDiv = $("<div>");
+    newDiv.addClass("starwars-demo");
+    var newImg = $("<img>");
+    newImg.attr("src", "assets/images/star.svg");
+    newImg.attr("alt", "Stars");
+    newImg.addClass("star");
+    newDiv.append(newImg);
+    var newImg2 = $("<img>");
+    newImg2.attr("src", "assets/images/wars.svg");
+    newImg2.attr("alt", "Wars");
+    newImg2.addClass("wars");
+    newDiv.append(newImg2);
+    var newH2 = $("<h3>");
+    newH2.addClass("byline text-center");
+    newH2.attr("id", "byline");
+    newH2.text("YODAD");
+    newDiv.append(newH2);
+    $(".intro").append(newDiv);
+    animateIntro();
+  }
+
+  
+    function animateIntro() {
+      var byline = document.getElementById("byline"); // Find the H2
+      var bylineText = byline.innerHTML; // Get the content of the H2
+      var bylineArr = bylineText.split(""); // Split content into array
+      byline.innerHTML = ""; // Empty current content
+  
+      var span; // Create variables to create elements
+      var letter;
+  
+      for (i = 0; i < bylineArr.length; i++) {
+        // Loop for every letter
+        span = document.createElement("span"); // Create a <span> element
+        letter = document.createTextNode(bylineArr[i]); // Create the letter
+        if (bylineArr[i] == " ") {
+          // If the letter is a space...
+          byline.appendChild(letter); // ...Add the space without a span
+        } else {
+          span.appendChild(letter); // Add the letter to the span
+          byline.appendChild(span); // Add the span to the h2
+        }
+      }
+  }
+  introScreen();
+  $(document).keyup(function() {
+    $(".starwars-demo").remove();
+    start();
+    icanHaz(starterSubject);
+  });
 });
+//start function builds the sections used for the tilt function
+
+//appends starter subject dad jokes
