@@ -346,6 +346,13 @@ pre code {
   background-color: #000000;
 }
 
+.tps-section:nth-child(5n + 1) .tps-wrapper {
+  background: url(demo5.jpg) center center;
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-color: #000000;
+}
+
 .header {
   overflow: hidden;
   clear: both;
