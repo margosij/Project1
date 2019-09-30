@@ -29,7 +29,7 @@ html {
 }
 
 body {
-  background: url("stars.jpg");
+  /* background: url("/assets/images/stars.jpg"); */
   background-repeat: round;
   padding: 0;
   text-align: center;
@@ -368,3 +368,14 @@ pre code {
   cursor: pointer;
 }
 
+/* ========================================================================== */
+/* animated background */
+/* ========================================================================== */
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+}
