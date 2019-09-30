@@ -32,7 +32,7 @@
     
     el.find('.tps-section').each(function(){
       var el2 = $(this); 
-      el2.wrapInner("<div class='tps-wrapper box'></div>");
+      el2.wrapInner("<div class='tps-wrapper'></div>");
     });
     
     function isElementInViewport (el3) {
