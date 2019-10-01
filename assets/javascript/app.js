@@ -45,7 +45,6 @@ $(document).ready(function() {
   });
 
   $(document).on("click", ".canHaz", function() {
-    console.log("this is clicked");
     Yoda(this.innerText);
   });
 
@@ -64,6 +63,8 @@ $(document).ready(function() {
       //append jokes to display
       $("#jokesGOHERE").empty();
       for (i = 0; i < jokes.length; i++) {
+        // $(".transbox").empty(); 
+        // $("#tps-wrapper").empty();
         var newJoke = $("<p>");
         newJoke.addClass("canHaz text-center");
         newJoke.text(jokes[i].joke);
@@ -90,7 +91,6 @@ $(document).ready(function() {
     };
 
     $.ajax(settings).then(function(response) {
-      console.log(sectionNUM, "sectionNum");
       $("section.page" + sectionNUM + ">div>div>div>div>div>div>div").text(
         response.contents.translated
       );
@@ -181,11 +181,17 @@ $(document).ready(function() {
       }
   }
   introScreen();
+
+  var firstClick = false;
   $(document).keyup(function() {
-    $(".starwars-demo").remove();
-    start();
-    icanHaz(starterSubject);
+    if (firstClick === false){
+      $(".starwars-demo").remove();
+      start();
+      icanHaz(starterSubject);
+      firstClick = true;
+    }
   });
+
 });
 //start function builds the sections used for the tilt function
 
