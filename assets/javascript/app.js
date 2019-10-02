@@ -77,6 +77,7 @@ $(document).ready(function() {
   //function to convert jokes to yodish
 
   function Yoda(jokeToConvert) {
+    // API call variable
     var settings = {
       async: true,
       crossDomain: true,
@@ -90,13 +91,101 @@ $(document).ready(function() {
       data: {}
     };
 
+    //ajax call
     $.ajax(settings).then(function(response) {
+      var cleanedYodish = cleanYodish(response.contents.translated);
+      //target
       $("section.page" + sectionNUM + ">div>div>div>div>div>div>div").text(
-        response.contents.translated
+        cleanedYodish
       );
+
+      //section counter
       sectionNUM++;
     });
   }
+
+// removes excess lines from and cleans up yodish translations
+function cleanYodish(rawTranslation) {
+  var extraLines = [
+    "Herh Herh Herh Herh! ",
+    "The dark side I sense in you! ",
+    "Feel the force! ",
+    "Hmmmm! ",
+    "Yeesssssss! "
+  ];
+
+  for (var i = 0; i < extraLines.length; i++) {
+    if (rawTranslation.includes(extraLines[i])) {
+      rawTranslation = rawTranslation.replace(extraLines[i], "");
+      i = -1;
+    }
+  }
+
+  rawTranslation = rawTranslation.replace(/,/g, ", ");
+
+  for (var i = 0; i < 1; i++) {
+    if (rawTranslation.includes(" ’")) {
+      rawTranslation = rawTranslation.replace(" ’", "'");
+      i = -1;
+    }
+  }
+
+  for (var i = 0; i < 1; i++) {
+    if (rawTranslation.includes(' "')) {
+      rawTranslation = rawTranslation.replace(' "', '"');
+      i = -1;
+    }
+  }
+
+  for (var i = 0; i < 1; i++) {
+    if (rawTranslation.includes('""')) {
+      rawTranslation = rawTranslation.replace('""', '" "');
+      i = -1;
+    }
+  }
+
+  for (var i = 0; i < 1; i++) {
+    if (rawTranslation.includes("  ")) {
+      rawTranslation = rawTranslation.replace("  ", " ");
+      i = -1;
+    }
+  }
+
+  for (var i = 0; i < 1; i++) {
+    if (rawTranslation.includes("I ’m")) {
+      rawTranslation = rawTranslation.replace("I ’m", "I'm");
+      i = -1;
+    }
+  }
+
+  for (var i = 0; i < 1; i++) {
+    if (rawTranslation.includes("I 'm")) {
+      rawTranslation = rawTranslation.replace("I 'm", "I'm");
+      i = -1;
+    }
+  }
+
+  for (var i = 0; i < 1; i++) {
+    if (rawTranslation.includes('*"')) {
+      rawTranslation = rawTranslation.replace('*"', '* "');
+      i = -1;
+    }
+  }
+
+  for (var i = 0; i < 1; i++) {
+    if (rawTranslation.includes("dad")) {
+      rawTranslation = rawTranslation.replace("dad", "Dad");
+      i = -1;
+    }
+  }
+
+  return rawTranslation;
+}
+
+
+
+
+
   //tilt function
   function tilt() {
     for (var i = 0; i < 6; i++) {
