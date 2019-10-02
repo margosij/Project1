@@ -68,7 +68,6 @@ $(document).ready(function() {
         newJoke.text(jokes[i].joke);
         $("#jokesGOHERE").append(newJoke);
       }
-      
     });
   }
   //function to convert jokes to yodish
@@ -85,8 +84,6 @@ $(document).ready(function() {
       },
       data: {}
     };
-
-
 
     $.ajax(settings).then(function(response) {
       var cleanedYodish = cleanYodish(response.contents.translated);
@@ -231,44 +228,40 @@ $(document).ready(function() {
     $(".intro").append(newDiv);
     animateIntro();
   }
-  
-    function animateIntro() {
-      var byline = document.getElementById("byline"); // Find the H2
-      var bylineText = byline.innerHTML; // Get the content of the H2
-      var bylineArr = bylineText.split(""); // Split content into array
-      byline.innerHTML = ""; // Empty current content
-  
-      var span; // Create variables to create elements
-      var letter;
-  
-      for (i = 0; i < bylineArr.length; i++) {
-        // Loop for every letter
-        span = document.createElement("span"); // Create a <span> element
-        letter = document.createTextNode(bylineArr[i]); // Create the letter
-        if (bylineArr[i] == " ") {
-          // If the letter is a space...
-          byline.appendChild(letter); // ...Add the space without a span
-        } else {
-          span.appendChild(letter); // Add the letter to the span
-          byline.appendChild(span); // Add the span to the h2
-        }
+
+  function animateIntro() {
+    var byline = document.getElementById("byline"); // Find the H2
+    var bylineText = byline.innerHTML; // Get the content of the H2
+    var bylineArr = bylineText.split(""); // Split content into array
+    byline.innerHTML = ""; // Empty current content
+
+    var span; // Create variables to create elements
+    var letter;
+
+    for (i = 0; i < bylineArr.length; i++) {
+      // Loop for every letter
+      span = document.createElement("span"); // Create a <span> element
+      letter = document.createTextNode(bylineArr[i]); // Create the letter
+      if (bylineArr[i] == " ") {
+        // If the letter is a space...
+        byline.appendChild(letter); // ...Add the space without a span
+      } else {
+        span.appendChild(letter); // Add the letter to the span
+        byline.appendChild(span); // Add the span to the h2
       }
+    }
   }
+  
   introScreen();
 
   //making sure the main page only loads once vs every time we hit a key
   var firstClick = false;
   $(document).keyup(function() {
-  
-    if (firstClick === false){
+    if (firstClick === false) {
       $(".starwars").remove();
       start();
       icanHaz(starterSubject);
       firstClick = true;
     }
   });
-
 });
-//start function builds the sections used for the tilt function
-
-//appends starter subject dad jokes
