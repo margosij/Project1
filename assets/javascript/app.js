@@ -1,108 +1,78 @@
-// When Page loads
 $(document).ready(function() {
-  // variable to help build the section class targets
+  //variable to help build the section class targets
   var sectionNUM = 1;
-  // variable to store joke input
+  //variable to store joke input
   var jokeCategory = "";
-  // first part of query variable
+  //query variable
   var queryURL = "https://icanhazdadjoke.com/search?term=";
-  // full query url variable will be stored here
+  //full query url variable
   var querysearchURL = "";
-  // variable for starter subject when page loads
+  //variable for starter subject when page loads
   var starterSubject = "dad";
-  // variable to determine whether the user has gotten past the intro screen
-  var started = false;
+
   // audio variables
-  var thememusic = new Audio("./assets/audio/theme.ogg");
-  thememusic.loop = true;
   var jediTheme = new Audio("./assets/audio/Jedi.mp3");
-  jediTheme.currentTime = 78;
-
-  
-  // var playPromise = thememusic.play();
-
-  // if (playPromise !== undefined) {
-  //   playPromise
-  //     .then(_ => {
-  //       // Automatic playback started!
-  //       // Show playing UI.
-  //     })
-  //     .catch(error => {
-  //       // Auto-play was prevented
-  //       // Show paused UI.
-  //     });
-  // }
-  // when submit button is clicked
+  jediTheme.currentTime = 79;
+  // ===========================================================================
+  // // ========================================================================
+  // // =====================================================================
+  // // ==================================================================
+  // // ===============================================================
+  //
+  // ===============================================================
+  // ==================================================================
+  // =====================================================================
+  // ========================================================================
+  // ===========================================================================
+  //when submit button is clicked
   $("#jokeInput").on("click", function(event) {
-    // empty Yoda translated box element
     $(".transbox").empty();
     sectionNUM = 1;
-    // prevent default submit
+    //prevent default submit
     event.preventDefault();
-    // reset joke category
     jokeCategory = "";
-
-    // get value from input field
+    //get value from input field
     jokeCategory = $("#category")
       .val()
       .trim();
-    // if input field is empty, return
-    if (jokeCategory === undefined || jokeCategory.length === 0) {
+    //if input field is empty, return
+    if (jokeCategory === undefined || jokeCategory.length == 0) {
       return;
     } else {
-      if (started != true) {
-        // call start function to create section elements
-        start();
-        started = true;
-      }
-      // source icanhaz api with joke category
+      //build query variable with subject
       icanHaz(jokeCategory);
     }
   });
 
-  // icanHaz AJAX function
+  $(document).on("click", ".canHaz", function() {
+    Yoda(this.innerText);
+  });
+
   function icanHaz(subject) {
-    // build complete query string
     querysearchURL = queryURL + subject;
     $.ajax({
-      // headers syntax
+      //headers syntax
       headers: {
         Accept: "application/json"
       },
       url: querysearchURL,
       method: "GET"
     }).then(function(randomJoke) {
-      // set response array
+      //set response array
       var jokes = randomJoke.results;
-      // empty joke element
+      //append jokes to display
       $("#jokesGOHERE").empty();
-      // for length of response object
-      for (var i = 0; i < jokes.length; i++) {
-        // var to store <p> element
+      for (i = 0; i < jokes.length; i++) {
         var newJoke = $("<p>");
-        // add class to <p> element
         newJoke.addClass("canHaz text-center");
-        // add joke text to <p> element
         newJoke.text(jokes[i].joke);
-        // append joke to joke area
         $("#jokesGOHERE").append(newJoke);
-
-        if (i < 6) {
-          Yoda(jokes[i].joke);
-        }
       }
+      
     });
   }
-
-  // set event listener on untranslated jokes
-  $(document).on("click", ".canHaz", function() {
-    sectionNUM = 1;
-    Yoda(this.innerText);
-  });
-
-  // function to convert jokes to yodish
+  //function to convert jokes to yodish
   function Yoda(jokeToConvert) {
-    // API call variable
     var settings = {
       async: true,
       crossDomain: true,
@@ -116,15 +86,13 @@ $(document).ready(function() {
       data: {}
     };
 
-    //ajax call
+
+
     $.ajax(settings).then(function(response) {
       var cleanedYodish = cleanYodish(response.contents.translated);
-      //target
       $("section.page" + sectionNUM + ">div>div>div>div>div>div>div").text(
         cleanedYodish
       );
-
-      //section counter
       sectionNUM++;
     });
   }
@@ -207,7 +175,7 @@ $(document).ready(function() {
     return rawTranslation;
   }
 
-  // tilt scroll function
+  //tilt function
   function tilt() {
     for (var i = 0; i < 6; i++) {
       $(".main").tiltedpage_scroll({
@@ -219,154 +187,88 @@ $(document).ready(function() {
       });
     }
   }
-
-  // function to build tilt screen elements
   function start() {
-    $(".intro").empty();
-    // remove intro screen elements
-    thememusic.pause();
+    //we set this to whatever we want, but 12 for now.
     jediTheme.play();
-    // we set this to whatever we want, but 5 for now.
-    for (var i = 1; i < 6; i++) {
-      // variable to store new section element
+    for (i = 1; i < 6; i++) {
       var newSection = $("<section>");
-      // add class to section element
       newSection.addClass("page" + i);
-      // variable to store new div element
       var jokeBox = $("<div>");
-      // add class to div element
       jokeBox.addClass("transbox");
-      // append <p> element to div element
       jokeBox.append("<p>");
-      // append div element to
       newSection.append(jokeBox);
       $(".main").append(newSection);
     }
-
-    // populate navbar with dad jokes on load.
-    icanHaz(starterSubject);
-
-    // when finished, start tilt function
     tilt();
   }
-
   // ===========================================================================
   // // ========================================================================
   // // =====================================================================
   // // ==================================================================
-  // Intro Animation
+  // intro
   // ==================================================================
   // =====================================================================
   // ========================================================================
   // ===========================================================================
-  // function to build intro Html
-  function introTheme() {
-    thememusic.play();
-    $("#intro").empty();
-    // variable to store new div
+  function introScreen() {
     var newDiv = $("<div>");
-    // add class to new div
     newDiv.addClass("starwars");
-    // variable to store new image element
     var newImg = $("<img>");
-    // add image a source to image element
     newImg.attr("src", "assets/images/star.svg");
-    // add alt property to imaage element
     newImg.attr("alt", "Stars");
-    // add class to image element
     newImg.addClass("star");
-    // add image element to new div
     newDiv.append(newImg);
-    // variable to store new image element
     var newImg2 = $("<img>");
-    // add source to image element
     newImg2.attr("src", "assets/images/wars.svg");
-    // add alt property to image element
     newImg2.attr("alt", "Wars");
-    // add class to image element
     newImg2.addClass("wars");
-    // add image to div element
     newDiv.append(newImg2);
-    // variable to store h3 element
     var newH2 = $("<h3>");
-    // add class to h3 element
     newH2.addClass("byline text-center");
-    // add ID to h3 element
     newH2.attr("id", "byline");
-    // Byline text in intro
     newH2.text("YODAD");
-    // add h3 to div
     newDiv.append(newH2);
-    // variable to store h5 element
-    var newH5 = $("<h5>");
-    // add class to h5 element
-    newH5.addClass("text-center startHere");
-    // add ID to h5 element
-    newH5.attr("id", "continue");
-    // set text to h5 element
-    newH5.text("Click here to start");
-    // add h5 to new div element
-    newDiv.append(newH5);
-    // add new div to intro div
-    $("#intro").append(newDiv);
-    // call animate intro function
-    animateLogo();
+    $(".intro").append(newDiv);
+    animateIntro();
   }
-
-  // function to animate byline on intro screen
-  function animateLogo() {
-    var byline = document.getElementById("byline"); // Find the H2
-    var bylineText = byline.innerHTML; // Get the content of the H2
-    var bylineArr = bylineText.split(""); // Split content into array
-    byline.innerHTML = ""; // Empty current content
-
-    var span; // Create variables to create elements
-    var letter;
-
-    for (var i = 0; i < bylineArr.length; i++) {
-      // Loop for every letter
-      span = document.createElement("span"); // Create a <span> element
-      letter = document.createTextNode(bylineArr[i]); // Create the letter
-      if (bylineArr[i] === " ") {
-        // If the letter is a space...
-        byline.appendChild(letter); // ...Add the space without a span
-      } else {
-        span.appendChild(letter); // Add the letter to the span
-        byline.appendChild(span); // Add the span to the h2
+  
+    function animateIntro() {
+      var byline = document.getElementById("byline"); // Find the H2
+      var bylineText = byline.innerHTML; // Get the content of the H2
+      var bylineArr = bylineText.split(""); // Split content into array
+      byline.innerHTML = ""; // Empty current content
+  
+      var span; // Create variables to create elements
+      var letter;
+  
+      for (i = 0; i < bylineArr.length; i++) {
+        // Loop for every letter
+        span = document.createElement("span"); // Create a <span> element
+        letter = document.createTextNode(bylineArr[i]); // Create the letter
+        if (bylineArr[i] == " ") {
+          // If the letter is a space...
+          byline.appendChild(letter); // ...Add the space without a span
+        } else {
+          span.appendChild(letter); // Add the letter to the span
+          byline.appendChild(span); // Add the span to the h2
+        }
       }
-    }
-    $("#continue").on("click", function() {
-      // remove intro screen elements
-      $("#intro").remove();
-      // call start function to create section elements
+  }
+  introScreen();
+
+  //making sure the main page only loads once vs every time we hit a key
+  var firstClick = false;
+  $(document).keyup(function() {
+  
+    if (firstClick === false){
+      $(".starwars").remove();
       start();
-      // populate navbar with dad jokes on load.
       icanHaz(starterSubject);
-    });
-  }
-  function epilogue() {
-    var starter = $("<section>");
-    starter.addClass("longAgo container-fluid");
-    starter.text("A long time ago in a galaxy far, far away....");
-    $("#intro").append(starter);
-    $("#intro").on("click", function() {
-      introTheme();
-      
-    });
-  }
-  function Yodad() {
-    epilogue();
-    
-  }
-
-  Yodad();
-
-  // add event listener on intro screen
-  $(".starwars").on("click", function() {
-    if (started != true) {
-      // call start function to create section elements
-      start();
-      started = true;
+      firstClick = true;
     }
   });
+
 });
+//start function builds the sections used for the tilt function
+
+//appends starter subject dad jokes

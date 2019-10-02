@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <head>
     <meta charset="UTF-8" />
     <meta
@@ -7,21 +8,14 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <title>Jokes from Yoda</title>
-    <!-- favicon link -->
-    <link rel="shortcut icon" type="image/jpg" href="assets/images/favicon.jpg" />
     <!-- jquery cdn -->
     <script
       src="https://code.jquery.com/jquery-3.4.1.min.js"
       integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
       crossorigin="anonymous"
     ></script>
-    <!-- Custom reset link -->
     <linK rel="stylesheet" type="text/css" href="assets/css/reset.css" />
-    <!-- Google Font CDN -->
-    <link
-      href="https://fonts.googleapis.com/css?family=Lato&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
     <!-- bootstrap cdn -->
     <link
       rel="stylesheet"
@@ -38,46 +32,20 @@
     <!-- CSS Link -->
     <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
   </head>
-  <!-- ======================================================================= -->
-  <!-- Body -->
-  <!-- ======================================================================= -->
+
   <body>
-    <!--Div for intro animation -->
-    <div id="intro"></div>
-    <!-- container for tilt-function -->
+    <div class = "intro"></div>
     <div class="pos-f-t">
-      <!-- stick navbar -->
       <div class="collapse" id="navbarToggleExternalContent">
         <div class="bg-dark p-4">
-          <!-- Untranslated Jokes are appended here -->
-          <div
-            class="card-body overflow-auto align-items-center"
-            id="jokesGOHERE"
-          ></div>
+        <div class="card-body overflow-auto align-items-center" id="jokesGOHERE"></div>
         </div>
       </div>
       <nav class="navbar fixed-top navbar-dark bg-dark">
-        <a
-          class="navbar-brand mr-auto"
-          href="https://margosij.github.io/Project1/"
-          >Yodad</a
-        >
-        <!-- Search form -->
+        <a class="navbar-brand mr-auto" href="https://margosij.github.io/Project1/">Yodad</a>
         <form class="form-inline ml-auto">
-          <input
-            class="form-control mr-sm-2"
-            type="search"
-            placeholder="Search Yodad Jokes..."
-            aria-label="Search"
-            id="category"
-          />
-          <button
-            class="btn btn-outline-success my-2 my-sm-0"
-            type="submit"
-            id="jokeInput"
-          >
-            Search
-          </button>
+          <input class="form-control mr-sm-2" type="search" placeholder="Search Yodad Jokes..." aria-label="Search" id="category">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit"id="jokeInput">Search</button>
         </form>
         <button
           class="navbar-toggler ml-auto"
@@ -92,14 +60,10 @@
         </button>
       </nav>
     </div>
-    <!-- Moving background -->
     <video autoplay muted loop id="myVideo">
-      <source src="assets/video/Space.mp4" type="video/mp4" />
+      <source src="assets/video/Space.mp4" type="video/mp4">
     </video>
-    
-    <!--Main Section  -->
     <div class="main"></div>
-    <!-- Bootstrap with Ajax build -->
     <script
       src="https://code.jquery.com/jquery-3.4.1.js"
       integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
@@ -115,9 +79,9 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
-    <!-- Tilted Page Javascript Link -->
+    
     <script src="assets/javascript/jquery.tiltedpage-scroll.js"></script>
-    <!-- Custom Javascript -->
+    
     <script src="assets/javascript/app.js"></script>
   </body>
 </html>

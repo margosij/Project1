@@ -9,7 +9,6 @@
   }
 html {
   height: 100%;
-  /* hidden scrollbar */
   overflow: scroll;
   overflow-x: hidden;
 }
@@ -32,7 +31,6 @@ body {
   height: 100%;
   color: #f8fdf8;
   font-family: "Star Jedi Outline Regular";
-  /* text-shadow: -1px 0 #328ada, 0 1px #328ada, 1px 0 #328ada, 0 -1px #328ada; */
 }
 
 .btn, .navbar-brand {
@@ -258,7 +256,6 @@ h5 {
   text-transform: uppercase;
   top: 50%;
   animation: intro 6s ease-out 1s;
-  /* opacity: 0; */
   z-index: 1;
 }
 
@@ -537,8 +534,6 @@ pre code {
 .transbox {
   background-color: rgb(46, 46, 46);
   border: 1px solid black;
-  /* opacity: .2;
-  filter: alpha(opacity=60); */
   min-height: 50px;
   font-size: 1.3em;
   margin: 200px 30px;
@@ -551,7 +546,4 @@ pre code {
 /* ========================================================================== */
 .canHaz {
   cursor: pointer;
-  /* In case of custom cursor */
-  /* cursor: url('../images/Lightsaber_blue.png'), auto; */
-  
 }
