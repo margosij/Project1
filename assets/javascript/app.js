@@ -10,9 +10,31 @@ $(document).ready(function() {
   var querysearchURL = "";
   // variable for starter subject when page loads
   var starterSubject = "dad";
+  // variable for play/pause function
+  var status = "play";
+  // audio variables
+  var thememusic = new Audio("./assets/audio/theme.ogg");
+  thememusic.loop = true;
+  var jediTheme = new Audio("./assets/audio/Jedi.mp3");
+  jediTheme.currentTime = 78;
+  // Show loading animation.
+  var yodaGiggle = new Audio("./assets/audio/yodalaugh.mp3");
 
+  var playPromise = thememusic.play();
+
+  if (playPromise !== undefined) {
+    playPromise
+      .then(_ => {
+        // Automatic playback started!
+        // Show playing UI.
+      })
+      .catch(error => {
+        // Auto-play was prevented
+        // Show paused UI.
+      });
+  }
   // when submit button is clicked
-  $("#jokeInput").on("click", function (event) {
+  $("#jokeInput").on("click", function(event) {
     // empty Yoda translated box element
     $(".transbox").empty();
     sectionNUM = 1;
@@ -64,6 +86,7 @@ $(document).ready(function() {
   }
   // set event listener on untranslated jokes
   $(document).on("click", ".canHaz", function() {
+    yodaGiggle.play();
     Yoda(this.innerText);
   });
 
@@ -107,6 +130,8 @@ $(document).ready(function() {
 
   //function to build tilt screen elements
   function start() {
+    thememusic.pause();
+    jediTheme.play();
     // we set this to whatever we want, but 5 for now.
     for (var i = 1; i < 6; i++) {
       // variable to store new section element
@@ -137,6 +162,8 @@ $(document).ready(function() {
   // ===========================================================================
   // function to build intro Html
   function introScreen() {
+    $(".intro").empty();
+    thememusic.play();
     // variable to store new div
     var newDiv = $("<div>");
     // add class to new div
@@ -178,12 +205,13 @@ $(document).ready(function() {
     // add ID to h5 element
     newH5.attr("id", "start");
     // set text to h5 element
-    newH5.text("Click here to start");
+    newH5.text("Click here to continue");
     // add h5 to new div element
     newDiv.append(newH5);
     // add new div to intro div
     $(".intro").append(newDiv);
     // call animate intro function
+    // thememusic.play();
     animateIntro();
   }
 
@@ -210,15 +238,31 @@ $(document).ready(function() {
       }
     }
   }
-  // start intro animation
-  introScreen();
-  // add event listener on intro screen
-  $(".startHere").on("click", function() {
-    // remove intro screen elements
-    $(".starwars").remove();
-    // call start function to create section elements
-    start();
-    // populate navbar with dad jokes on load.
-    icanHaz(starterSubject);
-  });
+
+  function anothereffingIntro() {
+    var starter = $("<section>");
+    starter.addClass("container-fluid");
+    starter.text("A long time ago in a galaxy far, far away....");
+    starter.attr("color","rgb(75, 213, 238)");
+    $(".intro").append(starter);
+    $(".intro").on('click', function () {
+      introScreen();
+    });
+  }
+  function Yodad() {
+    anothereffingIntro();
+    // start intro animation
+    
+    // add event listener on intro screen
+    $(".startHere").on("click", function() {
+      // remove intro screen elements
+      $(".starwars").remove();
+      // call start function to create section elements
+      start();
+      // populate navbar with dad jokes on load.
+      icanHaz(starterSubject);
+    });
+  }
+
+  Yodad();
 });

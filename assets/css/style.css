@@ -226,7 +226,17 @@ body {
   text-transform: uppercase;
   top: 37%;
 }
+.intro {
+  color: rgb(75, 213, 238);
+  font-family: "Lato", sans-serif;
+  left: -2em;
+  letter-spacing: 0.4em;
+  right: -2em;
+  text-align: center;
+  text-transform: uppercase;
+  
 
+}
 h5 {
   color: #f8fdf8;
   font-family: "Lato", sans-serif;
@@ -238,16 +248,18 @@ h5 {
   top: 120%;
   opacity: 0.5;
 }
+
+
 /*** Media queries for adjusting to different screen sizes ***/
 
 @media only screen and (max-width: 600px) {
-  .starwars {
+  .starwars, .intro {
     font-size: 10px;
   }
 }
 
 @media only screen and (max-width: 480px) {
-  .starwars {
+  .starwars, .intro {
     font-size: 7px;
   }
 }
