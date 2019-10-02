@@ -10,9 +10,11 @@ $(document).ready(function() {
   var querysearchURL = "";
   // variable for starter subject when page loads
   var starterSubject = "dad";
+  // variable to determine whether the user has gotten past the intro screen
+  var started = false;
 
   // when submit button is clicked
-  $("#jokeInput").on("click", function (event) {
+  $("#jokeInput").on("click", function(event) {
     // empty Yoda translated box element
     $(".transbox").empty();
     sectionNUM = 1;
@@ -29,10 +31,17 @@ $(document).ready(function() {
     if (jokeCategory === undefined || jokeCategory.length === 0) {
       return;
     } else {
+
+      if (started != true) {
+        // call start function to create section elements
+        start();
+        started = true;
+      }
       // source icanhaz api with joke category
       icanHaz(jokeCategory);
     }
   });
+
   // icanHaz AJAX function
   function icanHaz(subject) {
     // build complete query string
@@ -59,11 +68,17 @@ $(document).ready(function() {
         newJoke.text(jokes[i].joke);
         // append joke to joke area
         $("#jokesGOHERE").append(newJoke);
+
+        if (i < 6) {
+          Yoda(jokes[i].joke);
+        }
       }
     });
   }
+
   // set event listener on untranslated jokes
   $(document).on("click", ".canHaz", function() {
+    sectionNUM = 1;
     Yoda(this.innerText);
   });
 
@@ -84,14 +99,97 @@ $(document).ready(function() {
     };
     //ajax call
     $.ajax(settings).then(function(response) {
+      console.log(response.contents.translated);
+      var cleanedYodish = cleanYodish(response.contents.translated);
+      console.log(cleanedYodish);
       //target
       $("section.page" + sectionNUM + ">div>div>div>div>div>div>div").text(
-        response.contents.translated
+        cleanedYodish
       );
+
       //section counter
       sectionNUM++;
     });
   }
+
+  // removes excess lines from and cleans up yodish translations
+  function cleanYodish(rawTranslation) {
+    var extraLines = [
+      "Herh Herh Herh Herh! ",
+      "The dark side I sense in you! ",
+      "Feel the force! ",
+      "Hmmmm! ",
+      "Yeesssssss! "
+    ];
+
+    for (var i = 0; i < extraLines.length; i++) {
+      if (rawTranslation.includes(extraLines[i])) {
+        rawTranslation = rawTranslation.replace(extraLines[i], "");
+        i = -1;
+      }
+    }
+
+    rawTranslation = rawTranslation.replace(/,/g, ", ");
+
+    for (var i = 0; i < 1; i++) {
+      if (rawTranslation.includes(" ’")) {
+        rawTranslation = rawTranslation.replace(" ’", "'");
+        i = -1;
+      }
+    }
+
+    for (var i = 0; i < 1; i++) {
+      if (rawTranslation.includes(' "')) {
+        rawTranslation = rawTranslation.replace(' "', '"');
+        i = -1;
+      }
+    }
+
+    for (var i = 0; i < 1; i++) {
+      if (rawTranslation.includes('""')) {
+        rawTranslation = rawTranslation.replace('""', '" "');
+        i = -1;
+      }
+    }
+
+    for (var i = 0; i < 1; i++) {
+      if (rawTranslation.includes("  ")) {
+        rawTranslation = rawTranslation.replace("  ", " ");
+        i = -1;
+      }
+    }
+
+    for (var i = 0; i < 1; i++) {
+      if (rawTranslation.includes("I ’m")) {
+        rawTranslation = rawTranslation.replace("I ’m", "I'm");
+        i = -1;
+      }
+    }
+
+    for (var i = 0; i < 1; i++) {
+      if (rawTranslation.includes("I 'm")) {
+        rawTranslation = rawTranslation.replace("I 'm", "I'm");
+        i = -1;
+      }
+    }
+
+    for (var i = 0; i < 1; i++) {
+      if (rawTranslation.includes('*"')) {
+        rawTranslation = rawTranslation.replace('*"', '* "');
+        i = -1;
+      }
+    }
+
+    for (var i = 0; i < 1; i++) {
+      if (rawTranslation.includes("dad")) {
+        rawTranslation = rawTranslation.replace("dad", "Dad");
+        i = -1;
+      }
+    }
+
+    return rawTranslation;
+  }
+
   // tilt scroll function
   function tilt() {
     for (var i = 0; i < 6; i++) {
@@ -107,6 +205,9 @@ $(document).ready(function() {
 
   //function to build tilt screen elements
   function start() {
+    // remove intro screen elements
+    $(".starwars").remove();
+
     // we set this to whatever we want, but 5 for now.
     for (var i = 1; i < 6; i++) {
       // variable to store new section element
@@ -123,9 +224,14 @@ $(document).ready(function() {
       newSection.append(jokeBox);
       $(".main").append(newSection);
     }
+
+    // populate navbar with dad jokes on load.
+    icanHaz(starterSubject);
+
     // when finished, start tilt function
     tilt();
   }
+
   // ===========================================================================
   // // ========================================================================
   // // =====================================================================
@@ -210,15 +316,15 @@ $(document).ready(function() {
       }
     }
   }
+
   // start intro animation
   introScreen();
   // add event listener on intro screen
-  $(".startHere").on("click", function() {
-    // remove intro screen elements
-    $(".starwars").remove();
-    // call start function to create section elements
-    start();
-    // populate navbar with dad jokes on load.
-    icanHaz(starterSubject);
+  $(".starwars").on("click", function() {
+    if (started != true) {
+      // call start function to create section elements
+      start();
+      started = true;
+    }
   });
 });
