@@ -1,17 +1,9 @@
-/* ========================================================================== */
-/*  Custom Star Wars Font */
-/* ========================================================================== */
-@font-face {
-  font-family: 'Star Jedi Outline Regular';
-  font-style: normal;
-  font-weight: normal;
-  src: local('Star Jedi Outline Regular'), url('fonts/Starjout.woff') format('woff');
-  }
 html {
   height: 100%;
   overflow: scroll;
   overflow-x: hidden;
 }
+
 /* ========================================================================== */
   /* hidden scroll bar */
   /* ========================================================================== */
@@ -30,7 +22,7 @@ body {
   margin: 0;
   height: 100%;
   color: #f8fdf8;
-  font-family: "Star Jedi Outline Regular";
+  font-family: "Lato", sans-serif;
 }
 
 .btn, .navbar-brand {
@@ -84,9 +76,7 @@ body {
 .byline {
   animation: move-byline 10s linear infinite;
 }
-.startHere {
-  animation: star 20s ease-out infinite;
-}
+
 
 /* ========================================================================== */
   /* Keyframes */
@@ -167,20 +157,6 @@ body {
   }
 }
 
-@keyframes longAgo {
-  0% {
-      opacity: 0;
-  }
-  20% {
-      opacity: 1;
-  }
-  90% {
-      opacity: 1;
-  }
-  100% {
-      opacity: 0;
-  }
-}
 
 /* Make the 3D work on the container */
 .starwars {
