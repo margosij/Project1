@@ -25,10 +25,6 @@ body {
   font-family: "Lato", sans-serif;
 }
 
-.btn, .navbar-brand {
-  font-family: "Star Jedi Outline";
-}
-
 .navbar-toggler:focus {
   outline-color: #28a745;
   box-shadow: 0 0 0 0.2rem rgba(40,167,69,.5);
