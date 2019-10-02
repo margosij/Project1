@@ -13,26 +13,9 @@ $(document).ready(function() {
   // variable to determine whether the user has gotten past the intro screen
   var started = false;
   // audio variables
-  var thememusic = new Audio("./assets/audio/theme.ogg");
-  thememusic.loop = true;
   var jediTheme = new Audio("./assets/audio/Jedi.mp3");
-  jediTheme.currentTime = 78;
+  jediTheme.currentTime = 79;
 
-  
-  // var playPromise = thememusic.play();
-
-  // if (playPromise !== undefined) {
-  //   playPromise
-  //     .then(_ => {
-  //       // Automatic playback started!
-  //       // Show playing UI.
-  //     })
-  //     .catch(error => {
-  //       // Auto-play was prevented
-  //       // Show paused UI.
-  //     });
-  // }
-  // when submit button is clicked
   $("#jokeInput").on("click", function(event) {
     // empty Yoda translated box element
     $(".transbox").empty();
@@ -225,7 +208,6 @@ $(document).ready(function() {
   function start() {
     $(".intro").empty();
     // remove intro screen elements
-    thememusic.pause();
     jediTheme.play();
     // we set this to whatever we want, but 5 for now.
     for (var i = 1; i < 6; i++) {
@@ -262,7 +244,6 @@ $(document).ready(function() {
   // ===========================================================================
   // function to build intro Html
   function introTheme() {
-    thememusic.play();
     $("#intro").empty();
     // variable to store new div
     var newDiv = $("<div>");
@@ -345,29 +326,12 @@ $(document).ready(function() {
       icanHaz(starterSubject);
     });
   }
-  function epilogue() {
-    var starter = $("<section>");
-    starter.addClass("longAgo container-fluid");
-    starter.text("A long time ago in a galaxy far, far away....");
-    $("#intro").append(starter);
-    $("#intro").on("click", function() {
-      introTheme();
-      
-    });
-  }
+
   function Yodad() {
-    epilogue();
-    
+    introTheme();
   }
 
   Yodad();
 
-  // // add event listener on intro screen
-  // $(".starwars").on("click", function() {
-  //   if (started != true) {
-  //     // call start function to create section elements
-  //     start();
-  //     started = true;
-  //   }
-  // });
+ 
 });
