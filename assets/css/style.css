@@ -22,7 +22,9 @@ body {
   margin: 0;
   height: 100%;
   color: #f8fdf8;
-  font-family: "";
+
+  font-family: "Lato", sans-serif;
+
 }
 
 .navbar-toggler:focus {
