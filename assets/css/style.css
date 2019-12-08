@@ -22,11 +22,7 @@ body {
   margin: 0;
   height: 100%;
   color: #f8fdf8;
-  font-family: "Lato", sans-serif;
-}
-
-.btn, .navbar-brand {
-  font-family: "Star Jedi Outline";
+  font-family: "";
 }
 
 .navbar-toggler:focus {
