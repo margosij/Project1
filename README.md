@@ -1,4 +1,6 @@
-# Project1
+# [Yodad](https://margosij.github.io/Project1/)
+![Yodad Demo](assets/images/Yodad.gif)
+# Group Project 1
 # Have you ever been at a party and not known how to socialize?
 
 # Does the thought of speaking to your coworkers give you anxiety?
@@ -16,5 +18,3 @@
 5.  Scroll through the jokes as they appear in Yodish.  
 
 # GO FORTH AND BE FUNNY!!!!!
-
-[Yodad](https://margosij.github.io/Project1/)
